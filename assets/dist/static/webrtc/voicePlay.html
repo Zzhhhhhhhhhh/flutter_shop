@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="jMuxer - a simple javascript mp4 muxer for non-standard streaming communications protocol">
+    <meta name="keywords" content="h264 player, mp4 player, mse, mp4 muxing, jmuxer, aac player">
+    <title>JMuxer demo</title>
+	<script type="text/javascript" src="jmuxer.min.js"></script>
+</head>
+<body>
+    <div id="container" style="margin: 0 auto;">
+        <audio width="100%" controls autoplay id="player"></audio>
+    </div>
+    <script>
+    var ws = null, socketURL = '', jmuxer = '', websocketFlag = false, voiceTimer = null;
+        socketURL= window.location.href.split('?')[1];
+        websocketFun();
+        function websocketFun() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+            if (jmuxer) {
+                jmuxer.destroy();
+                jmuxer = null;
+            }
+            ws = new WebSocket(socketURL);
+            ws.binaryType = 'arraybuffer';
+            ws.addEventListener('open', function (event) {
+                jmuxer = new JMuxer({
+                    node: 'player',
+                    mode: 'audio',
+                    flushingTime: 5,
+                    fps: 10,
+                    debug: true
+                });
+                if (ws.readyState == 1) {
+                    websocketFlag = true;
+                    ws.send("GetAAC");
+                   clearInterval(voiceTimer)
+                    voiceTimer = setInterval(function () {
+                       ws.close();
+                   }, 10 * 60 * 1000);
+                }
+            });
+            ws.addEventListener('message', function (event) {
+                jmuxer.feed({
+                    audio: new Uint8Array(event.data)
+                });
+            });
+            ws.addEventListener('close', function () {
+                console.log('连接关闭')
+                if (websocketFlag) {
+                    websocketFun(socketURL)
+                }
+            })
+        }
+        function play(){
+            var audio = document.getElementById('player');
+            if(audio.paused){
+                audio.play();
+            }
+        }
+    </script>
+</body>
+</html>
