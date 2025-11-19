@@ -16,10 +16,10 @@ import 'pages2/ExercoseRankListPage.dart';
 import 'pages2/ExerciseDataPage.dart';
 import 'pages2/ExerciseLog.dart';
 import 'pages2/ExerciseDetailPage.dart';
-import 'pages2/testTable.dart';
-import 'pages2/dataTable2.dart';
-import 'pages2/testChart.dart';
-import 'pages2/testTabs.dart';
+// import 'pages2/testTable.dart';
+// import 'pages2/dataTable2.dart';
+// import 'pages2/testChart.dart';
+// import 'pages2/testTabs.dart';
 import 'package:flutter/services.dart';
 
 // 学习
