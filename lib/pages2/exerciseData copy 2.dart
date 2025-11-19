@@ -154,7 +154,7 @@ class _ExerciseDataPageState extends State<ExerciseDataPage> {
 
 // 头部
 class _CommonHead extends StatefulWidget {
-  const _CommonHead({super.key});
+  const _CommonHead();
 
   @override
   State<_CommonHead> createState() => __CommonHeadState();
