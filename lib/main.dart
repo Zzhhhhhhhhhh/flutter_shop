@@ -16,10 +16,10 @@ import 'pages2/ExercoseRankListPage.dart';
 import 'pages2/ExerciseDataPage.dart';
 import 'pages2/ExerciseLog.dart';
 import 'pages2/ExerciseDetailPage.dart';
-// import 'pages2/testTable.dart';
-// import 'pages2/dataTable2.dart';
-// import 'pages2/testChart.dart';
-// import 'pages2/testTabs.dart';
+import 'pages2/testTable.dart';
+import 'pages2/dataTable2.dart';
+import 'pages2/testChart.dart';
+import 'pages2/testTabs.dart';
 import 'package:flutter/services.dart';
 
 // 学习
@@ -103,11 +103,11 @@ class _MyAppState extends State<MyApp> {
         ), // 锻炼报告
         GetPage(name: "/login", page: () => LoginPage()), // 登录
         GetPage(name: "/faceLogin", page: () => FaceLoginPage()), // 人脸登录
-        // GetPage(name: "/testTable", page: () => TestRecordScreen()),
-        // GetPage(name: "/dataTable2", page: () => FixedTablePage()),
-        // GetPage(name: "/chart", page: () => ExerciseChartPage()),
-        // GetPage(name: "/testTabs", page: () => SportsTestPage()),
-        // GetPage(name: "/httpTest", page: () => HttpLearning()),
+        GetPage(name: "/testTable", page: () => TestRecordScreen()),
+        GetPage(name: "/dataTable2", page: () => FixedTablePage()),
+        GetPage(name: "/chart", page: () => ExerciseChartPage()),
+        GetPage(name: "/testTabs", page: () => SportsTestPage()),
+        GetPage(name: "/httpTest", page: () => HttpLearning()),
       ],
     );
   }
