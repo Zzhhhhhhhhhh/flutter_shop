@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       defaultTransition: Transition.cupertino,
-      initialRoute: "/exerciseRankList",
+      initialRoute: "/httpTest",
       getPages: [
         GetPage(name: "/", page: () => StartingPage()),
         GetPage(name: "/tabs", page: () => Tabs()),
